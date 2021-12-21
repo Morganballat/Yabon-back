@@ -1,0 +1,93 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+### Route GET /bets
+
+GET {{baseUrl}}/bets
+
+### Route GET /simplebets
+
+GET {{baseUrl}}/simplebets
+
+### Route GET /combinebets
+
+GET {{baseUrl}}/combinebets
+
+### Route GET /allLastPlayedBets
+
+GET {{baseUrl}}/allLastPlayedBets
+
+### Route GET /lastPlayedBet
+
+GET {{baseUrl}}/lastPlayedBet
+
+### Route GET /allLastIncomingBets
+
+GET {{baseUrl}}/allLastIncomingBets
+
+### Route GET /lastBetIncoming
+
+GET {{baseUrl}}/lastBetIncoming
+
+### Route GET /lastCombineBets
+
+GET {{baseUrl}}/lastCombineBets
+
+### Route GET /lastSimpleBets
+
+GET {{baseUrl}}/lastSimpleBets
+
+### Route GET /bets/{id}
+
+GET {{baseUrl}}/bets/1
+
+### Route GET /simpleBets/{id}
+
+GET {{baseUrl}}/simpleBets/4
+
+### Route GET /simpleBets/{id}
+
+GET {{baseUrl}}/combineBets/1
+
+### Route GET /bets/{Mauvaise id}
+
+GET {{baseUrl}}/bets/33
+
+### Route GET /bestBet
+
+GET {{baseUrl}}/bestBet
+
+### Route GET /badestBet
+
+GET {{baseUrl}}/badestBet
+
+### Route POST /bets
+
+POST {{baseUrl}}/bets
+Content-Type: application/json
+
+{
+    "type": "simple",
+    "cote": 5.50,
+    "mise": 20,
+    "beting_team":"test1",
+    "user_id": 1,
+    "bookmaker_id":1
+}
+
+### Route DELETE /bets/{id}
+DELETE  {{baseUrl}}/bets/1
+
+### Route DELETE /bets/{mauvaise id}
+DELETE  {{baseUrl}}/bets/3
+
+#### PATCH /bets/:{id}
+PATCH  {{baseUrl}}/bets/1
+Content-Type: application/json
+
+{
+    "beting_team": "Rennes"
+}

@@ -1,0 +1,34 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+### Route GET /sports
+
+GET {{baseUrl}}/sports
+
+### Route GET /sports/{id}
+
+GET {{baseUrl}}/sports/1
+
+### Route POST /sports
+
+POST {{baseUrl}}/sports
+Content-Type: application/json
+
+{
+    "name": "water licorne",
+    "league":"poney league"
+}
+
+#### PATCH /sports/:{id}
+PATCH  {{baseUrl}}/sports/2
+Content-Type: application/json
+
+{
+    "name": "Handball"
+}
+
+### Route DELETE /sports/{id}
+DELETE  {{baseUrl}}/sports/1

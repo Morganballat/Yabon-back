@@ -1,0 +1,57 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+### Route GET /matchs
+
+GET {{baseUrl}}/matchs
+
+### Route GET /matchs/{id}
+
+GET {{baseUrl}}/matchs/1
+
+### Route DELETE /matchs/{id}
+DELETE  {{baseUrl}}/matchs/7
+
+### Route POST /matchs
+
+POST {{baseUrl}}/matchs
+Content-Type: application/json
+
+{
+    "host_team": "montpellier",
+    "visitor": "nimes",
+    "date": "2021-03-02 20:00",
+    "end_game":"2021-03-02 22:00",
+    "score": "1-0",
+    "winner_team":"montpellier",
+    "looser_team": "nimes",
+    "cote": 1.50,
+    "sport_id":1 ,
+    "bet_id": 1
+}
+
+### Route POST /matchs sans les infos pas require
+
+POST {{baseUrl}}/matchs
+Content-Type: application/json
+
+{
+    "host_team": "montpellier",
+    "visitor": "nimes",
+    "date": "2021-03-02 20:00",
+    "end_game":"2021-03-02 22:00",
+    "cote": 1.50,
+    "sport_id":1 ,
+    "bet_id": 1
+}
+
+#### PATCH /matchs/:{id}
+PATCH  {{baseUrl}}/matchs/1
+Content-Type: application/json
+
+{
+    "host_team": "Rennes"
+}

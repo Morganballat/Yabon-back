@@ -1,0 +1,50 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+
+### Route GET /user
+
+GET {{baseUrl}}/user
+
+### Route Get /user/{id}
+GET {{baseUrl}}/user/4
+
+
+### Route Post /user
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+
+{
+    "mail": "test6@gmail.com",
+    "password": "test6"
+}
+
+### Route Post /user
+POST {{baseUrl}}/user/register
+Content-Type: application/json
+
+{
+    "firstname" : "test6",
+    "lastname" : "test6",
+    "mail": "test6@gmail.com",
+    "password": "test6",
+    "role" : "user"
+}
+
+### Route Delete /user/{id}
+
+DELETE  {{baseUrl}}/user/10
+
+
+### Route Patch /user/{id}
+PATCH  {{baseUrl}}/user/4
+Content-Type: application/json
+
+{
+    "firstname": "bibi",
+    "mail": "julien.lxpro@gmail.com"
+}
+
